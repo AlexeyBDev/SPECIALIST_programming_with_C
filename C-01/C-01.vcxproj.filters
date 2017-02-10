@@ -33,5 +33,11 @@
     <ClCompile Include="exercise_06.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="exercise_07.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="exercise_08.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
