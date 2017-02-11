@@ -15,10 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="exercise_01.c">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="main_02.c">
+    <ClCompile Include="main_04.c">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
