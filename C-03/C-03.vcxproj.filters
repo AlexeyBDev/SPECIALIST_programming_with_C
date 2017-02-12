@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main_04.c">
+    <ClCompile Include="inClassRoom_03.c">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>

@@ -18,7 +18,13 @@
     <ClCompile Include="exercise_01.c">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="main_02.c">
+    <ClCompile Include="inClassRoom_02.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="exercise_02.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="exercise_03.c">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
