@@ -45,5 +45,20 @@
     <ClCompile Include="exersice_09.c">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="exersice_10.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="exersice_11.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="exersice_12.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="exersice_13.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="exersice_14.c">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
