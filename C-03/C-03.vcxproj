@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Examples\calc.c" />
+    <ClCompile Include="Examples\HW_04_08_sports.c" />
+    <ClCompile Include="Examples\ScanCodes.c" />
+    <ClCompile Include="Examples\screen_ctrl.c" />
+    <ClCompile Include="Examples\zmeia.c" />
+    <ClCompile Include="inClassRoom_03.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="my_function.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4A7E576A-EF57-489C-916D-5CF375216985}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -142,9 +153,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="inClassRoom_03.c" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

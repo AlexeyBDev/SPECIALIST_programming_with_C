@@ -13,10 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы исходного кода\module_05">
+      <UniqueIdentifier>{28544763-d48a-489f-85b2-2ebdf6e7dec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\module_06">
+      <UniqueIdentifier>{c0764d55-d996-424a-b6e1-04e081caa5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\examplesOfTask">
+      <UniqueIdentifier>{e727c017-07f7-4ea3-aa05-b9ebc266e16b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="inClassRoom_03.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="Examples\calc.c">
+      <Filter>Файлы исходного кода\examplesOfTask</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\HW_04_08_sports.c">
+      <Filter>Файлы исходного кода\examplesOfTask</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\ScanCodes.c">
+      <Filter>Файлы исходного кода\examplesOfTask</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\screen_ctrl.c">
+      <Filter>Файлы исходного кода\examplesOfTask</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\zmeia.c">
+      <Filter>Файлы исходного кода\examplesOfTask</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="my_function.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -13,52 +13,58 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Файлы исходного кода\module_03">
+      <UniqueIdentifier>{d77726de-15fa-4d12-848e-cc303065b40c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\module_04">
+      <UniqueIdentifier>{440c3ed6-489f-4213-b5cb-58c7578da1f6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="exercise_01.c">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
-    <ClCompile Include="inClassRoom_02.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exercise_02.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exercise_03.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exercise_04.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exercise_05.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_06.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_07.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_08.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_09.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_10.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_11.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_12.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_13.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
     </ClCompile>
     <ClCompile Include="exersice_14.c">
-      <Filter>Файлы ресурсов</Filter>
+      <Filter>Файлы исходного кода\module_03</Filter>
+    </ClCompile>
+    <ClCompile Include="inClassRoom_02.c">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

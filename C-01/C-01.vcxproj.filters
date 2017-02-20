@@ -13,31 +13,37 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\module_01">
+      <UniqueIdentifier>{3aaca1ed-3ce0-4a08-a349-dbdf1bdbe0df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\module_02">
+      <UniqueIdentifier>{d7139150-b68f-4dd0-bda4-d237194d5e18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="exercise_02.c">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="exercise_08.c">
+      <Filter>Source Files\module_01</Filter>
     </ClCompile>
     <ClCompile Include="exercise_01.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\module_01</Filter>
+    </ClCompile>
+    <ClCompile Include="exercise_02.c">
+      <Filter>Source Files\module_01</Filter>
     </ClCompile>
     <ClCompile Include="exercise_03.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\module_01</Filter>
     </ClCompile>
     <ClCompile Include="exercise_04.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\module_01</Filter>
     </ClCompile>
     <ClCompile Include="exercise_05.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\module_01</Filter>
     </ClCompile>
     <ClCompile Include="exercise_06.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\module_01</Filter>
     </ClCompile>
     <ClCompile Include="exercise_07.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="exercise_08.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\module_01</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
