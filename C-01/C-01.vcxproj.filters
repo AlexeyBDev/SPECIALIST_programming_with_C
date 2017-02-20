@@ -45,5 +45,11 @@
     <ClCompile Include="exercise_07.c">
       <Filter>Source Files\module_01</Filter>
     </ClCompile>
+    <ClCompile Include="exersice02_01.c">
+      <Filter>Source Files\module_02</Filter>
+    </ClCompile>
+    <ClCompile Include="printfExersice.c">
+      <Filter>Source Files\module_02</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

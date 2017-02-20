@@ -39,7 +39,10 @@
     <ClCompile Include="Examples\screen_ctrl.c">
       <Filter>Файлы исходного кода\examplesOfTask</Filter>
     </ClCompile>
-    <ClCompile Include="Examples\zmeia.c">
+    <ClCompile Include="conioTrening.c">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="Examples\snake.c">
       <Filter>Файлы исходного кода\examplesOfTask</Filter>
     </ClCompile>
   </ItemGroup>
