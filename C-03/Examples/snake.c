@@ -1,7 +1,7 @@
 /* Программа представляет игру "Змейка"
- * Начальный текст программы получена на курсах по программирования на С (Специалист). 
+ * Начальный текст программы получен на курсе "Программирование на языке C (Си)" (Специалист). 
  * Первоначальный автор неизвестен.
- * Версия 0.2
+ * Версия 0.9
  */
 
 #include <stdio.h>
@@ -25,13 +25,14 @@
 // параметры змеи
 #define HEAD_SNAKE '@'						// символ головы змеи
 #define BODY_SNAKE 'o'						// символ тела змеи 'o'
-#define SNAKE_SIZE 5						// начальная длинна змеи
-#define SNAKE_MAX_SIZE 10					// максимальный рамер змеи
+#define SNAKE_SIZE 4						// начальная длинна змеи
+#define SNAKE_MAX_SIZE 40					// максимальный рамер змеи
 #define EMPTY_SPACE ' '						// пустая позиция с которой ушла змея (пробел)
 // иные параметры
 #define START_POINT_X FRAME_X / 2			// x начала движения змеи
 #define START_POINT_Y FRAME_Y / 2			// y начала двизения змеи
-#define SLEEP 100							// шаг паузы
+#define SLEEP 400							// шаг паузы
+#define DIFF_SPEEDS 1.25					// соотношение скоростей по строкам и по столбцам
 #define FOOD '*'							// символ еды
 // направления
 #define UP 0x48
@@ -45,24 +46,24 @@ struct balloon_snake						// структура описывает бусинку змеи
 	int y;
 };
 
-typedef struct balloon_snake balloonSnake;	// новое имя структуры
-typedef struct balloon_snake foodPosition;	// новое имя структуры
+typedef struct balloon_snake balloonSnake;	// псевданим структуры
+typedef struct balloon_snake foodPosition;	// структура для положения еды
 
 balloonSnake startPointFrame = { START_POINT_FRAME_X,// точка старта отрисовку рамки
 START_POINT_FRAME_Y };
 balloonSnake pointForEndMessage = { 0,			// точка вывода завершающей надписи по окончании программы
+START_POINT_FRAME_Y + FRAME_Y + 2 };
+balloonSnake pointForEndStatistic = { 0,		// точка вывода статистики во время работы программы
 START_POINT_FRAME_Y + FRAME_Y + 1 };
 
 void drawFrame(int, int);					// функция отрисовки ограничивающей рамки
-//void gotoxy(int, int);						// функция перемещения курсора по заданным координатам
 void gotoxy(balloonSnake);						// функция перемещения курсора по заданным координатам
 int startDirection(void);					// функция генерации начального направления
 void newSnake(balloonSnake *,int leight, int direction);		// функция начальной генерации тела змеи
 balloonSnake stepSnake(int direction, balloonSnake head);		// функция генерации шага змеи
 bool snakeCrash(balloonSnake position);							// функция определения столкновения змеи с рамкой
-foodPosition foodGenerator();									// генератор еды
-
-
+foodPosition foodGenerator(balloonSnake *Snake, int longSnake);					// генератор еды
+bool crashWithItSelf(balloonSnake *Snake, int longSnake);						// проверка змеи на столкновение с самой собой
 
 int main()
 {
@@ -71,30 +72,50 @@ int main()
 
 	drawFrame(FRAME_X, FRAME_Y);			// нарисовать рамку
 
-	int key = RIGHT/*startDirection()*/, // текущее значение управляющей клавиши (стрелки)
-		prevKey,
-		dx = 1, // начальная инициализация приращений по координатам (змея ползет вправо)
-		dy = 0;
-	balloonSnake Snake[SNAKE_MAX_SIZE];				// массив описывающий положение змеи в координатах
+	int key = startDirection(),				// генерация начального значения направления хода змеи
+		prevKey;
+	int speed = SLEEP;						// начальная скорость змеи
+	balloonSnake Snake[SNAKE_MAX_SIZE];		// массив тела змеи
 
-	int longSnake = SNAKE_SIZE,						// longSnake - текущий размер змеи
-		i; 
+	int longSnake = SNAKE_SIZE;						// longSnake - текущий размер змеи
 
 	newSnake(Snake, SNAKE_SIZE, key);				// функция генерации начального тела змеи
 	foodPosition food;
+	food = foodGenerator(Snake, longSnake);							// генерация еды для змеи
 
-	while (true) // цикл программы
+	gotoxy(pointForEndStatistic);									// перевод курсора в точку вывода статистики
+	printf("Текущая скорость: %d  Размер змеи: %d\n", 
+		SLEEP / speed, longSnake);									// вывод статистики
+
+	while (true) // основной цикл программы
 	{
 		if (snakeCrash(Snake[0])) {					// столкновение змеи с рамкой
 			gotoxy(pointForEndMessage);				// завершающая надпись после рамки
 			printf("Авария!!!\n");
 			break;
 		}
+		if (crashWithItSelf(Snake, longSnake)) {	// столкновение змеи с рамкой
+			gotoxy(pointForEndMessage);				// завершающая надпись после рамки
+			printf("Я запуталась.....!!!\n");
+			break;
+		}
+		// проверка на столкновение змеи с самой сабой
 
-		food = 
-		gotoxy(Snake[0]);					// перемещение курсора в первых сектор змеи
-		putchar(HEAD_SNAKE);						// отрисовка головы змеи
-		for (i = 1; i < longSnake; i++)
+
+		if (food.x == Snake[0].x && food.y == Snake[0].y) {				// если положение головы совпало с положением еды
+			longSnake++;												// увеличение змеи на один сектор
+			food = foodGenerator(Snake, longSnake - 1);					// генерация новой еды для змеи
+			speed = SLEEP / (longSnake / SNAKE_SIZE);					// увеличение скорости при росте змеи
+			gotoxy(pointForEndStatistic);								// перевод курсора в точку вывода статистики
+			printf("Текущая скорость: %d  Размер змеи: %d\n", 
+				SLEEP / speed, longSnake);								// вывод статистики
+		}
+		// проверка food
+		// printf("%d %d\n", food.x, food.y);
+
+		gotoxy(Snake[0]);												// перемещение курсора в первых сектор змеи
+		putchar(HEAD_SNAKE);											// отрисовка головы змеи
+		for (int i = 1; i < longSnake; i++)
 		{
 			gotoxy(Snake[i]);
 			putchar(BODY_SNAKE);
@@ -118,27 +139,22 @@ int main()
 			if (key == UP && prevKey == DOWN) key = DOWN;
 			
 		}
-		gotoxy(Snake[0]);							// перевод курсора в голову змеи
-		if (key == LEFT || key == RIGHT) Sleep(SLEEP);// задержка времени
-		else Sleep(SLEEP * 1.5);							// скорость между строками медленнее в 1.5 раза								
-		
-		gotoxy(Snake[longSnake - 1]);				// уход курсора в последний сектор замеи
-		putchar(EMPTY_SPACE);						// отрисовка пустоты
+		gotoxy(Snake[0]);										// перевод курсора в голову змеи
 
-		for (i = longSnake - 1; i > 0; i--)
+		if (key == LEFT || key == RIGHT) Sleep(speed);			// задержка времени
+		else Sleep(speed * DIFF_SPEEDS);						// скорость между строками медленнее в DIFF_SPEEDS раз						
+		
+		gotoxy(Snake[longSnake - 1]);							// уход курсора в последний сектор замеи
+		putchar(EMPTY_SPACE);									// отрисовка пустоты
+
+		for (int i = longSnake - 1; i > 0; i--)						// перемещение тела змеи в новое состояние
 		{
 			Snake[i] = Snake[i - 1];
-			/*bodySnake[0][i] = bodySnake[0][i - 1];
-			bodySnake[1][i] = bodySnake[1][i - 1];*/
 		}
 
-		Snake[0] = stepSnake(key, Snake[0]);
-		/*bodySnake[0][0] += dx;
-		bodySnake[1][0] += dy;*/
-		
-
-	}
-}
+		Snake[0] = stepSnake(key, Snake[0]);					// отрисовка нового положения головы змеи
+	} // end while
+} // end main
 
 void newSnake(balloonSnake *Snake, int leight, int direction)
 {
@@ -244,13 +260,6 @@ void drawFrame(int x, int y)
 	}
 }
 
-
-//void gotoxy(int x, int y)
-//{
-//	COORD position = { x, y };
-//	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
-//}
-
 void gotoxy(balloonSnake step)
 {
 	COORD position = { step.x, step.y };
@@ -264,13 +273,36 @@ bool snakeCrash(balloonSnake position)						// функция определения столкновения 
 	else return false;
 }
 
-foodPosition foodGenerator()								// генератор еды
+foodPosition foodGenerator(balloonSnake *Snake, int longSnake)								// генератор еды
 {	
 	foodPosition food;
 	DWORD nStartValue = time(NULL);
 	srand(nStartValue);
 	int food_x, food_y;
-	food.x = rand() % (START_POINT_FRAME_X + FRAME_X);
-	food.y = rand() % (START_POINT_FRAME_Y + FRAME_Y);
+	food.x = START_POINT_FRAME_X + rand() % (FRAME_X - 2) + 1;				// генерация положения еды в рамке
+	food.y = START_POINT_FRAME_Y + rand() % (FRAME_Y - 2) + 1;				// -2 - уменьшение диапазона чтобы не попало на рамки
+																			// +1 - смещение относительно начало
+	// проверка на совпадение положения еды с положением самой змеи
+	// если попало на змею, генерируем заново
+	for (int i = 0; i < longSnake; i++) {
+		if (food.x == Snake[i].x && food.y == Snake[i].y)
+		{
+			food = foodGenerator(Snake, longSnake);							// если совпало, то вызываем повторно
+			gotoxy(food);
+			putchar(FOOD); // отрисовка еды
+			return food;
+		}
+	}
+	gotoxy(food);
+	putchar(FOOD);											// отрисовка еды
 	return food;
+}
+
+bool crashWithItSelf(balloonSnake *Snake, int longSnake) {		// проверка змеи на столкновение с самой собой
+	for(int i = 1; i < longSnake; i++)
+	{
+		if (Snake[0].x == Snake[i].x && Snake[0].y == Snake[i].y)
+			return true;
+	}
+	return false;
 }
