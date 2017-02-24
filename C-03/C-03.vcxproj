@@ -19,16 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bubnov_function.c" />
     <ClCompile Include="conioTrening.c" />
-    <ClCompile Include="Examples\calc.c" />
+    <ClCompile Include="Examples\exercise_05_01.c" />
     <ClCompile Include="Examples\HW_04_08_sports.c" />
     <ClCompile Include="Examples\ScanCodes.c" />
     <ClCompile Include="Examples\screen_ctrl.c" />
     <ClCompile Include="Examples\snake.c" />
+    <ClCompile Include="exercise_05_02.c" />
+    <ClCompile Include="exercise_05_03.c" />
+    <ClCompile Include="exercise_05_04.c" />
+    <ClCompile Include="exercise_06_01.c" />
+    <ClCompile Include="exercise_06_05.c" />
     <ClCompile Include="inClassRoom_03.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="my_function.h" />
+    <ClInclude Include="bubnov_function.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="questions_240217.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4A7E576A-EF57-489C-916D-5CF375216985}</ProjectGuid>
