@@ -20,4 +20,12 @@
       <UniqueIdentifier>{ae1ffdda-0756-492f-b6ec-0bf67ed0b2ed}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="inClassRoom_04.c">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="d.c">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

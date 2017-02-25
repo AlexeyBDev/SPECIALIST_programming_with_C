@@ -18,6 +18,10 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="d.c" />
+    <ClCompile Include="inClassRoom_04.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4D022E28-01E4-4003-A2D7-94DEBEEBD74A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
