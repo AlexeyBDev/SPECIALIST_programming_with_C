@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="d.c" />
+    <ClCompile Include="exersice07_10.c" />
     <ClCompile Include="inClassRoom_04.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

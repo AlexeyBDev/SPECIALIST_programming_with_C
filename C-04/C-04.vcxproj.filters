@@ -27,5 +27,8 @@
     <ClCompile Include="d.c">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="exersice07_10.c">
+      <Filter>Файлы исходного кода\module_07</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
