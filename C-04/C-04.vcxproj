@@ -23,6 +23,9 @@
     <ClCompile Include="exersice07_10.c" />
     <ClCompile Include="inClassRoom_04.c" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="questions_04.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4D022E28-01E4-4003-A2D7-94DEBEEBD74A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

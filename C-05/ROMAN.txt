@@ -1,0 +1,200 @@
+/******************************************************************************
+  * @file    main.c
+  * @author  Ilin R
+  * @version V0.0.1
+  * @date    28.02.2017
+  * @brief   Main programm body, HW # 6, Ex # 12
++Ввести фамилии N студентов и их экзаменационные оценки по
+M предметам
++a. Вычислить средние баллы по студентам и по каждому предмету
+b. Напечатать списки «отличников», «хорошистов», «троечников» и
+«двоечников»
+  ******************************************************************************/
+#include <stdio.h>
+
+
+#define sizeString		20
+#define sizeStudents	100
+#define sizeThemes		100
+
+int main()
+{
+
+
+	char namFam[sizeStudents][sizeString] = {0};//massiv strok dlya familij
+	char buf[sizeString]={0};					//byffer dlya vvoda fimilij
+	int balls[sizeStudents][sizeThemes]={0};	//massiv ocenok po predmetam
+
+	int k1 = 0;	//vibor sposoba vvoda ocenok
+	int k2 = 0; //kol-vo predmetov
+	int theme = 0;//nomer predmeta
+	int ball_buf = 0;
+	int cntStudents = 0;//schetchik kol-va stydentov
+
+	double averBallStud[sizeStudents]={0};
+	double averBallThem[sizeThemes]={0};
+	int sumBallStud = 0;
+	int sumBallThem = 0;
+
+	int ballRate[sizeStudents]={0};
+	int flag2 = 0;
+	int flag3 = 0;
+	int flag4 = 0;
+	int flag5 = 0;
+	int sum = 0;
+	double aver = 0.0;
+
+	printf("Enter student`s surnames\n");
+	for(int i = 0; i<sizeStudents; ++i)
+	{
+		scanf("%s",buf);
+		++cntStudents;
+		for(int j=0;j<sizeString;++j)
+		{
+			namFam[i][j] = buf[j];
+			
+			if(buf[j]=='!')
+			{
+				i=sizeStudents;
+				--cntStudents;
+			}
+		}
+	}
+
+	printf("How you will enter balls: by Surnames(1) or by Theme(0)?\n");//balls[sizeStudents][sizeThemes]={0};
+	scanf("%d",&k1);
+	printf("Enter number of themes:\n");
+	scanf("%d",&k2);
+
+	if(k1)//vnesenie ocenok po familiyam
+	{
+
+		fflush(stdin);
+		for (int k = 0; k < k2; ++k)// k - nomer predmeta
+		{
+			theme = k;
+			printf("Theme %d\n",theme+1);
+
+			for(i = 0; i<cntStudents; ++i)// i - nomer stydenta
+			{
+				printf("Student %s, ball of %d theme is (0-5):\n",namFam[i],theme+1);
+				scanf("%d",&ball_buf);//theme_buf - byffer ocenki
+				fflush(stdin);
+
+				if (ball_buf == 9)
+				{
+					balls[i][k] = 0;
+					i = cntStudents;
+				}
+				balls[i][k] = ball_buf;
+			}
+		}
+	//display
+		for(i=0;i<cntStudents;++i)
+			{
+				printf("--------------------\n");
+				printf("Student %s\n",namFam[i]);
+				for(int j = 0; j< k2;++j)
+					{	
+						printf("Theme %d, ball %d\n",j+1,balls[i][j]);
+					}
+			}
+
+	//average
+	for(i = 0; i<cntStudents; ++i)// i - nomer stydenta
+	{
+		for(int j = 0; j<k2;++j)//j - nomer predmeta
+		{
+			sumBallStud = sumBallStud + balls[i][j];
+		}
+		averBallStud[i] = ((double)sumBallStud)/((double)k2);
+		sumBallStud = 0;
+	}
+	//display//average
+		printf("--------------------\n");	
+	for(i = 0; i<cntStudents;++i)
+	{
+		printf("Student %s, average ball is %1.1f\n",namFam[i],averBallStud[i]);
+	}
+	
+
+	}
+	else//vnesenie ocenok po predmetam
+	{
+
+		for(i = 0; i<cntStudents; ++i)
+		{
+			for(int j=0;j<k2;++j)
+			{
+				printf("Student %s, theme %d, ball is\n",namFam[i],j+1);
+				scanf("%d",&ball_buf);
+				fflush(stdin);
+				balls[i][j] = ball_buf;
+			}
+		}
+		//display
+		for(i=0;i<cntStudents;++i)
+			{
+			printf("--------------------\n");
+			printf("Student %s\n",namFam[i]);
+			for(int j = 0; j< k2;++j)
+				{	
+					printf("Theme %d, ball %d\n",j+1,balls[i][j]);
+				}
+			}
+	//average
+	for(i = 0; i<k2;++i)//i - nomer predmeta
+	{
+		for(int j = 0; j<cntStudents;++j)
+		{
+			sumBallThem = sumBallThem + balls[j][i];
+		}
+		averBallThem[i] = (double)sumBallThem/(double)cntStudents;
+		sumBallThem = 0;
+	}
+	//display//average
+	printf("--------------------\n");
+	for(i=0;i<k2;++i)
+	{
+		printf("Theme %d, average ball is: %2.2f\n",i+1,averBallThem[i]);
+	}
+	}
+//2-3-4-5
+	for(i=0;i<cntStudents;++i)
+	{
+		for(int j=0;j<k2;++j)
+		{
+			if(balls[i][j]<3) 
+				flag2=1;
+			if(balls[i][j]==3) 
+				flag3=1;
+			if(balls[i][j]==4) 
+				flag4 = 1;
+			sum = sum + balls[i][j];
+		}
+		aver = (double)sum/(double)(k2-1);
+		if(flag2) 
+			ballRate[i] = 2;
+		if((!flag2)&&(flag3)) 
+			ballRate[i] = 3;
+		if ((!flag2)&&(!flag3)&&(flag4)&&((aver>=4.0)||(aver<4.9))) 
+			ballRate[i] = 4;
+		if (((!flag2)&&(!flag3)&&(!flag4))&&(aver>=4.9)) 
+			ballRate[i] = 5;
+
+		sum = 0;
+		aver = 0.0;
+		flag2 = 0;
+		flag3 = 0;
+		flag4 = 0;
+	}
+
+	printf("--------------------\n");
+	for(i = 0; i<cntStudents;++i)
+	{
+		printf("Student %s is %d\n",namFam[i],ballRate[i] );
+	}
+
+	return 0;
+}
+

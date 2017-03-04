@@ -31,4 +31,7 @@
       <Filter>Файлы исходного кода\module_07</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="questions_04.txt" />
+  </ItemGroup>
 </Project>
