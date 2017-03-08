@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A2C56E5A-BCDF-4BEB-B6FA-1F8071E26FD5}</ProjectGuid>
+    <ProjectGuid>{6D0DF780-F624-4ABC-9FFB-0D96169165ED}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>C05</RootNamespace>
+    <RootNamespace>C06</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -142,14 +142,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="inClassRoom_05.c" />
-    <ClCompile Include="memoryClasses.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="ROMAN.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="testMem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
